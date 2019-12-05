@@ -14,7 +14,10 @@
                     <strong class="title">My app</strong>
                 </a>
 
-                <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <a 
+                    role="button" class="navbar-burger burger" aria-label="menu" 
+                    aria-expanded="false" data-target="navbarBasicExample"
+                >
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
@@ -23,8 +26,13 @@
 
         <div id="navbarBasicExample" class="navbar-menu">
             <div class="navbar-start">
-                @Html.ActionLink("10+5", "Sum", "Calculator", new { firstNumber = 10, secondNumber = 5 }, new { @class = "navbar-item" })
-                @Html.ActionLink("10+23", "Sum", "Calculator", new { firstNumber = 10, secondNumber = 23 }, new { @class = "navbar-item" })
+                @Html.ActionLink("Students", "Index", "Student",new {},  new { @class = "navbar-item" })
+                @Html.ActionLink("Departments", "Index", "Department", new { }, new { @class = "navbar-item" })
+                @Html.ActionLink("Teachers", "Index", "Teacher", new { }, new { @class = "navbar-item" })
+                @Html.ActionLink("StudentScore", "Index", "StudentScore", new { }, new { @class = "navbar-item" })
+                @Html.ActionLink("Syllabus", "Index", "Syllabus", new { }, new { @class = "navbar-item" })
+                @Html.ActionLink("Subject", "Index", "Subject", new { }, new { @class = "navbar-item" })
+            
             </div>
 
             <div class="navbar-end">

@@ -21,7 +21,8 @@ namespace stable.Controllers
         // GET: Student
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Students.ToListAsync());
+            var projectContext = _context.Students.Include(s => s.Group);
+            return View(await projectContext.ToListAsync());
         }
 
         // GET: Student/Details/5
@@ -33,6 +34,7 @@ namespace stable.Controllers
             }
 
             var student = await _context.Students
+                .Include(s => s.Group)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (student == null)
             {
@@ -45,6 +47,7 @@ namespace stable.Controllers
         // GET: Student/Create
         public IActionResult Create()
         {
+            ViewData["GroupId"] = new SelectList(_context.Groups, "Id", "Id");
             return View();
         }
 
@@ -53,7 +56,7 @@ namespace stable.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Email")] Student student)
+        public async Task<IActionResult> Create([Bind("Id,Name,Email,GroupId")] Student student)
         {
             if (ModelState.IsValid)
             {
@@ -61,6 +64,7 @@ namespace stable.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["GroupId"] = new SelectList(_context.Groups, "Id", "Id", student.GroupId);
             return View(student);
         }
 
@@ -77,6 +81,7 @@ namespace stable.Controllers
             {
                 return NotFound();
             }
+            ViewData["GroupId"] = new SelectList(_context.Groups, "Id", "Id", student.GroupId);
             return View(student);
         }
 
@@ -85,7 +90,7 @@ namespace stable.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Email")] Student student)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Email,GroupId")] Student student)
         {
             if (id != student.Id)
             {
@@ -112,6 +117,7 @@ namespace stable.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["GroupId"] = new SelectList(_context.Groups, "Id", "Id", student.GroupId);
             return View(student);
         }
 
@@ -124,6 +130,7 @@ namespace stable.Controllers
             }
 
             var student = await _context.Students
+                .Include(s => s.Group)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (student == null)
             {

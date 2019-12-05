@@ -13,7 +13,9 @@ namespace stable.Models.Students {
 
 		[Required]
 		[EmailAddress]
+
 		public string Email { get; set; }
+		public int GroupId { get; set; }
 		public Group Group { get; set; }
 		public List<StudentScore> StudentScores { get; set; }
 	}

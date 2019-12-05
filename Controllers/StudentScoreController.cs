@@ -49,7 +49,7 @@ namespace stable.Controllers
         public IActionResult Create()
         {
             ViewData["ScoreId"] = new SelectList(_context.Scores, "Id", "Id");
-            ViewData["StudentId"] = new SelectList(_context.Students, "Id", "Id");
+            ViewData["StudentId"] = new SelectList(_context.Students, "Id", "Email");
             return View();
         }
 
@@ -67,7 +67,7 @@ namespace stable.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["ScoreId"] = new SelectList(_context.Scores, "Id", "Id", studentScore.ScoreId);
-            ViewData["StudentId"] = new SelectList(_context.Students, "Id", "Id", studentScore.StudentId);
+            ViewData["StudentId"] = new SelectList(_context.Students, "Id", "Email", studentScore.StudentId);
             return View(studentScore);
         }
 
@@ -85,7 +85,7 @@ namespace stable.Controllers
                 return NotFound();
             }
             ViewData["ScoreId"] = new SelectList(_context.Scores, "Id", "Id", studentScore.ScoreId);
-            ViewData["StudentId"] = new SelectList(_context.Students, "Id", "Id", studentScore.StudentId);
+            ViewData["StudentId"] = new SelectList(_context.Students, "Id", "Email", studentScore.StudentId);
             return View(studentScore);
         }
 
@@ -122,7 +122,7 @@ namespace stable.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["ScoreId"] = new SelectList(_context.Scores, "Id", "Id", studentScore.ScoreId);
-            ViewData["StudentId"] = new SelectList(_context.Students, "Id", "Id", studentScore.StudentId);
+            ViewData["StudentId"] = new SelectList(_context.Students, "Id", "Email", studentScore.StudentId);
             return View(studentScore);
         }
 

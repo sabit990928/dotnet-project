@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
 namespace stable.Controllers {
@@ -10,9 +6,9 @@ namespace stable.Controllers {
 			return View ();
 		}
 
-		//public string Index()
-		//{
+		// public string Index()
+		// {
 		//    return "Hello from controller";
-		//}
+		// }
 	}
 }
