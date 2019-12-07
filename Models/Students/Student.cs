@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using stable.Models.Groups;
 using stable.Models.StudentScores;
-
+using stable.Utils;
 namespace stable.Models.Students {
 	public class Student {
 		public int Id { get; set; }
@@ -13,7 +13,8 @@ namespace stable.Models.Students {
 
 		[Required]
 		[EmailAddress]
-
+		[ValidTeacherDomain (iituDomain: "iitu.kz",
+			ErrorMessage = "Email domain must be iitu.kz")]
 		public string Email { get; set; }
 		public int GroupId { get; set; }
 		public Group Group { get; set; }
