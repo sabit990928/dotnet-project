@@ -10,5 +10,13 @@ namespace stable.Models.Teachers {
 		public string Name { get; set; }
 		public int DepartmentId { get; set; }
 		public Department Department { get; set; }
+
+		public Teacher () { }
+
+		public Teacher (int id, string name, int departmentId) {
+			this.Id = id;
+			this.Name = name;
+			this.DepartmentId = departmentId;
+		}
 	}
 }

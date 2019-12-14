@@ -10,5 +10,12 @@ namespace stable.Models.Scores {
 		[Remote (action: "VerifyScorePercent", controller: "Score")]
 		public int Percent { get; set; }
 		public List<StudentScore> StudentScores { get; set; }
+
+		public Score () { }
+
+		public Score (int id, int percent) {
+			this.Id = id;
+			this.Percent = percent;
+		}
 	}
 }

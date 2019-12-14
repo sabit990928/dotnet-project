@@ -10,5 +10,12 @@ namespace stable.Models.Groups {
 
 		public int GroupNumber { get; set; }
 		public List<Student> Students { get; set; }
+
+		public Group () { }
+
+		public Group (int id, int groupNumber) {
+			this.Id = id;
+			this.GroupNumber = groupNumber;
+		}
 	}
 }

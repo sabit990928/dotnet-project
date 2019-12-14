@@ -8,5 +8,13 @@ namespace stable.Models.StudentScores {
 		public Student Student { get; set; }
 		public int ScoreId { get; set; }
 		public Score Score { get; set; }
+
+		public StudentScore () { }
+
+		public StudentScore (int id, int studentId, int scoreId) {
+			this.id = id;
+			this.StudentId = studentId;
+			this.ScoreId = scoreId;
+		}
 	}
 }

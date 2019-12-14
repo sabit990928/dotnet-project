@@ -19,5 +19,14 @@ namespace stable.Models.Students {
 		public int GroupId { get; set; }
 		public Group Group { get; set; }
 		public List<StudentScore> StudentScores { get; set; }
+
+		public Student () { }
+
+		public Student (int id, string name, string email, int groupId) {
+			this.Id = id;
+			this.Name = name;
+			this.Email = email;
+			this.GroupId = groupId;
+		}
 	}
 }

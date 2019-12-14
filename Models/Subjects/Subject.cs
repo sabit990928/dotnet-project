@@ -10,5 +10,13 @@ namespace stable.Models.Subjects {
 		public string Name { get; set; }
 		public int SyllabusId { get; set; }
 		public Syllabus Syllabus { get; set; }
+
+		public Subject () { }
+
+		public Subject (int id, string name, int syllabusId) {
+			this.Id = id;
+			this.Name = name;
+			this.SyllabusId = syllabusId;
+		}
 	}
 }
